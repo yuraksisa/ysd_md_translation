@@ -92,12 +92,10 @@ module Model
         
         terms.each do |attribute, value|
           
-          if value and value.to_s.strip.length > 0
-            translation_term = TranslationTerm.new({:concept => attribute, 
+          translation_term = TranslationTerm.new({:concept => attribute, 
                                                   :translated_text => value, 
                                                   :translation_language => translation_language})
-            translation.translation_terms << translation_term
-          end
+          translation.translation_terms << translation_term
                   
         end
         
@@ -117,9 +115,9 @@ module Model
         Translation.transaction do
       
           attributes.each do |attribute, value|
-        
+            
             if term = TranslationTerm.get_term(self, translation_language, attribute)
-              term.translation = value
+              term.translated_text = value
               term.save
             else
               TranslationTerm.create({:concept => attribute, 
