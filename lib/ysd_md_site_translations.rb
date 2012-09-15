@@ -16,6 +16,12 @@ module Model
         #
         # Creates or updates a menu item translation
         #
+        # @param [Integer] menu_item_id
+        # @param [String]  language_code
+        # @param [Hash]    attributes to be translated
+        #
+        # @return [Model::Translation::Site::MenuItemTranslation]
+        #
         def self.create_or_update(menu_item_id, language_code, attributes)
         
           menu_item_translation = nil
@@ -71,6 +77,13 @@ module Model
 end #Model
 
 module Site
+
+  #
+  # MenuItem
+  #
+  # Open the Site::MenuItem class to add the translate method which is used to retrieve a translated version
+  # of the MenuItem instance
+  #
   class MenuItem
   
     #
@@ -89,12 +102,13 @@ module Site
       if menu_item_translation = ::Model::Translation::Site::MenuItemTranslation.get(id)
         translated_attributes = {}
         menu_item_translation.get_translated_attributes(language_code).each {|term| translated_attributes.store(term.concept.to_sym, term.translated_text)}
-        menu_item = MenuItem.new(attributes.merge(translated_attributes){ |key, old_value, new_value| new_value.to_s.strip.length > 0?new_value:old_value }) 
+        menu_item = MenuItem.new(attributes.merge(translated_attributes){ |key, old_value, new_value| new_value.to_s.strip.length > 0?new_value:old_value })
+        children.each { |menu_item_child| menu_item.children << menu_item_child }
       else
         menu_item = self       
       end
     
-      menu_item
+      return menu_item
     
     end
   
