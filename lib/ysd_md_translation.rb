@@ -1,3 +1,5 @@
-require 'ysd_md_translations'
+require 'ysd_md_translation_language'
+require 'ysd_md_translation_translation'
+require 'ysd_md_translation_term'
 require 'ysd_md_cms_translations'
 require 'ysd_md_site_translations'

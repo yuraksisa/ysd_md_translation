@@ -1,4 +1,5 @@
 require 'data_mapper' unless defined?DataMapper
+require 'ysd_md_site' unless defined?Site
 module Model
   module Translation
     module Site

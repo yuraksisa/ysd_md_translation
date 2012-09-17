@@ -1,4 +1,5 @@
 require 'data_mapper' unless defined?DataMapper
+require 'ysd_md_cms' unless defined?ContentManagerSystem
 module Model
   module Translation
     module CMS
