@@ -9,8 +9,5 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/yuraksisa/ysd_md_translation"
   
   s.add_runtime_dependency "data_mapper", "1.1.0"
-  
-  s.add_runtime_dependency "ysd_md_cms"           # CMS (content, term)
-  s.add_runtime_dependency "ysd_md_site"          # Site model (menu item) 
-  
+    
 end
