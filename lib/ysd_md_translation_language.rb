@@ -36,7 +36,7 @@ module Model
               
         search_options = {}        
         search_options.store(:limit, options[:limit]) if options.has_key?(:limit)
-        search_options.store(:offet, options[:offset]) if options.has_key?(:offset)
+        search_options.store(:offset, options[:offset]) if options.has_key?(:offset)
     
         count = options[:count] || true
         result = []

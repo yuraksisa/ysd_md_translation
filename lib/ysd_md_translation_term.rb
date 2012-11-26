@@ -4,7 +4,7 @@ module Model
   module Translation
 
     #
-    # Each instance of translation term represents the
+    # Each instance of translation term represents a translated concept
     #
     class TranslationTerm
       include ::DataMapper::Resource
